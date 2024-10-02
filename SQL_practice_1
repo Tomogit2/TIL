@@ -1,0 +1,13 @@
+SQLの基本的な問題。基礎的なSQLの操作。
+2つのテーブルのデータの比較や、片方にしかないデータを抽出する
+
+テーブルAとテーブルBがあるとします。
+テーブルAにあるIDが、テーブルBには存在しないデータを抽出する。
+
+SELECT A.id, A.value
+FROM A
+LEFT JOIN B ON A.id = B.id
+WHERE B.id IS NULL;
+
+LEFT JOINを使って、テーブルAを基準にテーブルBと結合します。
+WHERE B.id IS NULLで、テーブルBに存在しないデータ（ID）を抽出します。これにより、テーブルAにあるが、テーブルBにはないIDを持つレコードだけが取得されます。
